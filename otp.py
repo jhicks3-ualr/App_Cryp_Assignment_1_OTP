@@ -23,10 +23,8 @@ def multi_cipher(text, key, mode='encrypt'):
     result = ""
 
     if mode == 'decrypt':
-        try:
-            key = pow(key, -1, 26)
-        except ValueError:
-            raise ValueError("The key was not coprime of 26")
+        key = pow(key, -1, 26)
+
 
     for char in text:
         if char.isalpha():
@@ -85,11 +83,6 @@ def otp_recover_and_encryption():
     donald_bin_str = format(donald_bin_int, f'0{donald_bit_len}b')
 
     recovered_key_bit_len = total_bits
-
-    if donald_bit_len > recovered_key_bit_len:
-        raise ValueError(f"The second name, {donald_bytes}, requires {donald_bit_len}, "
-                         f"but the discovered key only provides up to {recovered_key_bit_len} bits.")
-
     shift_amount = max(0, recovered_key_bit_len - donald_bit_len)
     used_key_int = secret_key_int >> shift_amount
 
