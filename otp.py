@@ -100,8 +100,7 @@ def otp_recover_and_encryption():
     print(f"Recovered Secret Key:          {fmt_secret_key}")
     print(f"Unencoded Binary (donald):     {fmt_donald_bin}")
     print(f"New Encrypted Binary (donald): {fmt_donald_cipher}")
-
-    user_input = input("Press any key to return to the previous menu...")
+    input("Press any key to return to the previous menu...")
 
     return
 
@@ -119,7 +118,7 @@ def main():
                 exit()
             case _:
                 print("Invalid Entry. Please enter 1, 2, or exit.")
-#calling of the main function
+
 main()
 
 
